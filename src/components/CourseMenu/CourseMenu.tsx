@@ -9,18 +9,22 @@ const completed = 32;
 const CourseMenu = () => {
   const [activeAccordion, setActiveAccordion] =
     useState<string>("المجموعة الأولى");
-  const [isMenuVisible, setIsMenuVisible] = useState<boolean>(true);
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isMenuVisible, setIsMenuVisible] = useState<boolean>(true);
   const [menuWidth, setMenuWidth] = useState(425);
   const controls: AnimationControls = useAnimation();
   const menuRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
 
   useEffect(() => {
-    setIsMenuVisible(window.innerWidth > 1024 ? true : false);
-    setIsMobile(window.innerWidth < 1024);
-    if (window.innerWidth < 1024) {
-      setMenuWidth(window?.innerWidth);
-    }
+    const handleResize = () => {
+      setIsMenuVisible(window.innerWidth > 1024);
+      setIsMobile(window.innerWidth < 1024);
+      if (window.innerWidth < 1024) {
+        setMenuWidth(window.innerWidth);
+      }
+    };
+
+    handleResize();
   }, []);
 
   useEffect(() => {
@@ -38,6 +42,16 @@ const CourseMenu = () => {
       width: menuWidth,
     },
   };
+
+  useEffect(() => {
+    if (isMobile) {
+      document.body.style.overflowX = isMenuVisible ? "hidden" : "auto";
+      document.body.style.overflowY = "auto";
+      document.documentElement.style.overflowX = isMenuVisible
+        ? "hidden"
+        : "auto";
+    }
+  }, [isMenuVisible, isMobile]);
 
   return (
     <div className="relative">
