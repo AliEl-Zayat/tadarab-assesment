@@ -1,0 +1,26 @@
+.star-wrapper {
+  display: inline-block;
+  font-size: 1.4rem;
+  color: #be1622;
+  position: relative;
+  user-select: none;
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+  color: #bbbabf;
+}
+
+.full {
+  color: #be1622;
+}
+
+.partial-star {
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  color: #be1622;
+  display: inline-block;
+}
