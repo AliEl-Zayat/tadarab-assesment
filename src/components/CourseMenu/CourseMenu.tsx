@@ -10,13 +10,17 @@ const CourseMenu = () => {
   const [activeAccordion, setActiveAccordion] =
     useState<string>("المجموعة الأولى");
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(true);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [menuWidth, setMenuWidth] = useState(425);
   const controls: AnimationControls = useAnimation();
   const menuRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
     setIsMenuVisible(window.innerWidth > 1024 ? true : false);
     setIsMobile(window.innerWidth < 1024);
+    if (window.innerWidth < 1024) {
+      setMenuWidth(window?.innerWidth);
+    }
   }, []);
 
   useEffect(() => {
@@ -31,7 +35,7 @@ const CourseMenu = () => {
     hidden: { x: "100%", width: 0 },
     visible: {
       x: 0,
-      width: window.innerWidth > 1024 ? "425px" : window.innerWidth,
+      width: menuWidth,
     },
   };
 
