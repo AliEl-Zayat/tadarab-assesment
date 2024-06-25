@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className={`flex min-h-screen`}>
       <CourseMenu />
-      <div className="px-4 pt-[30px] flex-[3] md:px-[54px] md:pe-20">
+      <div className="px-4 pt-[30px] flex-[3] md:px-[54px] md:pe-20 md:max-w-[1366px] mx-auto">
         <Video
           src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
           thumbnail="https://peach.blender.org/wp-content/uploads/bbb-splash.png"

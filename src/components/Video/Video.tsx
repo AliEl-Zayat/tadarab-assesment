@@ -13,8 +13,13 @@ const Video = ({ src, track, thumbnail }: TVideo) => {
   const thumbnailResized = thumbnail.replace("fullsize", "smaller");
 
   return (
-    <div className="rounded-[20px] overflow-hidden shadow-video ">
-      <video controls preload="metadata" poster={thumbnailResized}>
+    <div className="rounded-[20px] overflow-hidden shadow-video">
+      <video
+        controls
+        preload="metadata"
+        poster={thumbnailResized}
+        className="w-full h-full"
+      >
         <source src={src} type="video/mp4" />
         {track && (
           <track
