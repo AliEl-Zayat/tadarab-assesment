@@ -5,10 +5,14 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { useCallback, useEffect, useState } from "react";
 import StarRating from "../StarRating/StarRating";
 
+interface Rate {
+  rating: 1 | 2 | 3 | 4 | 5;
+}
+
 const CustomerRating = () => {
-  const { data, isLoading, isRefetching } = useSuspenseQuery(ratingOptions);
-  const [rates, setRates] = useState([]);
-  const [renderRates, setRenderRates] = useState({
+  const { data } = useSuspenseQuery(ratingOptions);
+  const [rates, setRates] = useState<Rate[]>([]);
+  const [renderRates, setRenderRates] = useState<{ [key: number]: number }>({
     1: 0,
     2: 0,
     3: 0,
@@ -30,7 +34,7 @@ const CustomerRating = () => {
         5: 0,
       };
 
-      rates.forEach((rate) => {
+      rates.forEach((rate: Rate) => {
         ratesCount[rate.rating] += 1;
       });
       console.log(ratesCount);
@@ -41,7 +45,7 @@ const CustomerRating = () => {
   //   simulate max rating by 5 so we get rates from data response to get rating from 0-5
   useEffect(() => {
     if (data) {
-      const normalizedRatings = data.map((item) => {
+      const normalizedRatings = data.map((item: any) => {
         // Clamp rating to be between 0 and 5
         const normalizedRating = Math.max(0, Math.min(5, item.rating));
         return { ...item, rating: normalizedRating };
@@ -49,11 +53,13 @@ const CustomerRating = () => {
       setRates(normalizedRatings);
       setTotalRatesCount(normalizedRatings.length);
       setAverageRating(
-        normalizedRatings.reduce((acc, item) => acc + item.rating, 0) /
-          normalizedRatings.length
+        normalizedRatings.reduce(
+          (acc: number, item: any) => acc + item.rating,
+          0
+        ) / normalizedRatings.length
       );
       setFiveStarCount(
-        normalizedRatings.filter((item) => item.rating === 5).length
+        normalizedRatings.filter((item: any) => item.rating === 5).length
       );
     }
   }, [data]);
@@ -114,7 +120,11 @@ const CustomerRating = () => {
         {Object.keys(renderRates)
           .reverse()
           .map((key) => (
-            <RatingRow key={key} stars={key} rating={renderRates[key]} />
+            <RatingRow
+              key={key}
+              stars={Number(key)}
+              rating={Number(renderRates[Number(key)])}
+            />
           ))}
       </div>
     </>
