@@ -2,6 +2,7 @@
 
 import { ratingOptions } from "@/app/rating";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { motion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 import StarRating from "../StarRating/StarRating";
 
@@ -79,11 +80,11 @@ const CustomerRating = () => {
         <div className="flex items-center gap-2 justify-between">
           <p className="flex-shrink-0 text-gray-500">{stars} نجوم</p>
           <div className="h-[10px] bg-gray-200 w-full rounded-lg">
-            <div
-              style={{
-                width: ratingPercentage(rating, true),
-              }}
+            <motion.div
               className={`h-[10px] bg-primary-dark rounded-lg`}
+              initial={{ width: "0%" }}
+              animate={{ width: ratingPercentage(rating, true) }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
             />
           </div>
           <p className="flex-shrink-0 min-w-[55px] text-left text-gray-500">

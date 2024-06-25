@@ -1,7 +1,5 @@
 type TVideo = {
   src: string;
-  width: number;
-  height: number;
   thumbnail: string;
   track?: {
     src: string;
@@ -11,28 +9,24 @@ type TVideo = {
   };
 };
 
-const Video = ({ src, width, height, track, thumbnail }: TVideo) => {
+const Video = ({ src, track, thumbnail }: TVideo) => {
   const thumbnailResized = thumbnail.replace("fullsize", "smaller");
 
   return (
-    <video
-      width={`${width}`}
-      height={`${height}`}
-      controls
-      preload="metadata"
-      poster={thumbnailResized}
-    >
-      <source src={src} type="video/mp4" />
-      {track && (
-        <track
-          src={track.src}
-          kind={track.kind}
-          srcLang={track.srcLang}
-          label={track.label}
-        />
-      )}
-      Your browser does not support the video tag.
-    </video>
+    <div className="rounded-[20px] overflow-hidden shadow-video ">
+      <video controls preload="metadata" poster={thumbnailResized}>
+        <source src={src} type="video/mp4" />
+        {track && (
+          <track
+            src={track.src}
+            kind={track.kind}
+            srcLang={track.srcLang}
+            label={track.label}
+          />
+        )}
+        Your browser does not support the video tag.
+      </video>
+    </div>
   );
 };
 export default Video;

@@ -10,18 +10,12 @@ export default function Home() {
 
   return (
     <main className={`flex min-h-screen`}>
-      <div className="flex-[1]">
-        <CourseMenu />
-      </div>
-      <div className="px-4 pt-[30px] flex-[3] md:pe-20">
-        <div className="rounded-[20px] overflow-hidden shadow-video">
-          <Video
-            width={425}
-            height={240}
-            src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-            thumbnail="https://peach.blender.org/wp-content/uploads/bbb-splash.png"
-          />
-        </div>
+      <CourseMenu />
+      <div className="px-4 pt-[30px] flex-[3] md:px-[54px] md:pe-20">
+        <Video
+          src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+          thumbnail="https://peach.blender.org/wp-content/uploads/bbb-splash.png"
+        />
         <HydrationBoundary state={dehydrate(queryClient)}>
           <div className="shadow-card rounded-[20px] py-[18px] px-[24px] mt-[25px] mb-[21px] flex flex-col gap-[10px]">
             <p className="text-[22px] font-extrabold">آراء العملاء</p>

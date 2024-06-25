@@ -25,7 +25,7 @@ export const NAVBAR_LINKS = [
 ];
 export const NAVBAR_LOGO = "/logo.svg";
 export const COURSE_CONTENT = {
-  "المجموعة الآولي": {
+  "المجموعة الأولى": {
     total: 5,
     content: [
       {
