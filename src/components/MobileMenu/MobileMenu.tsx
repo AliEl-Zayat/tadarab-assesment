@@ -9,13 +9,7 @@ import {
   motion,
   useAnimation,
 } from "framer-motion";
-import {
-  MouseEvent,
-  MutableRefObject,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import NavLinks from "../NavLinks";
 
 const MobileMenu: React.FC = () => {
@@ -39,19 +33,16 @@ const MobileMenu: React.FC = () => {
     }
   }, [isMenuVisible]);
 
-  const handleClickOutside = (event: MouseEvent | MouseEvent) => {
+  const handleClickOutside: EventListener = (event: Event) => {
     if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
       setIsMenuVisible(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside as EventListener);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener(
-        "mousedown",
-        handleClickOutside as EventListener
-      );
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
