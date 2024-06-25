@@ -23,16 +23,18 @@ const NavLink = ({ title, href, icon, isRow }: Props) => {
   });
 
   return (
-    <div className={`flex items-center gap-[8px] relative h-full ${container}`}>
+    <Link
+      href={href}
+      className={`flex items-center gap-[8px] relative h-full ${container}`}
+    >
       {Icon}
-      <Link
-        href={href}
+      <p
         className={`text-[15px] font-bold text-black ${
           activeLink ? "text-primary-dark" : ""
         } hover:text-primary-light transition-colors`}
       >
         {title}
-      </Link>
+      </p>
       {activeLink && !isRow && (
         <span
           style={{
@@ -59,7 +61,7 @@ const NavLink = ({ title, href, icon, isRow }: Props) => {
           }}
         />
       )}
-    </div>
+    </Link>
   );
 };
 
