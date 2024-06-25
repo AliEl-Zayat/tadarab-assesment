@@ -7,9 +7,10 @@ import { MutableRefObject, useEffect, useRef, useState } from "react";
 const completed = 32;
 
 const CourseMenu = () => {
-  const [activeAccordion, setActiveAccordion] = useState<string | null>(
-    "المجموعة الأولى"
-  );
+  const [activeAccordions, setActiveAccordions] = useState<string[]>([
+    "المجموعة الأولى",
+  ]);
+
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(true);
   const [menuWidth, setMenuWidth] = useState(425);
@@ -55,6 +56,12 @@ const CourseMenu = () => {
         : "auto";
     }
   }, [isMenuVisible, isMobile]);
+
+  const toggleAccordion = (key: string) => {
+    setActiveAccordions((prev) =>
+      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
+    );
+  };
 
   return (
     <div className="relative">
@@ -102,9 +109,7 @@ const CourseMenu = () => {
                 <div className="accordion-container" key={key}>
                   <div
                     className="accordion-header py-[26px] flex justify-between border-b-[1px] border-b-[#0000001A] ps-[39px] pe-[22px] items-center hover:cursor-pointer select-none"
-                    onClick={() => {
-                      setActiveAccordion((prev) => (prev === key ? null : key));
-                    }}
+                    onClick={() => toggleAccordion(key)}
                   >
                     <p className="text-[16px] font-extrabold text-[#777]">
                       {key}{" "}
@@ -112,14 +117,18 @@ const CourseMenu = () => {
                         ({completed.length}/{value.content.length})
                       </span>
                     </p>
-                    {activeAccordion === key ? <MinusIcon /> : <PlusIcon />}
+                    {activeAccordions.includes(key) ? (
+                      <MinusIcon />
+                    ) : (
+                      <PlusIcon />
+                    )}
                   </div>
 
                   <motion.div
                     className={`accordion-body flex flex-col px-[20px] bg-[#f6f6f6]`}
                     initial={{ height: "0", overflow: "hidden" }}
                     animate={
-                      activeAccordion === key
+                      activeAccordions.includes(key)
                         ? { height: "auto" }
                         : { height: "0" }
                     }
