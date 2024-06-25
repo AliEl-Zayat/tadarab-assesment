@@ -1,7 +1,7 @@
 import { AccountIcon } from "@/assets";
 import MenuDots from "@/assets/icons/MenuDots";
 import MoonIcon from "@/assets/icons/MoonIcon";
-import { NAVBAR_HEIGHT } from "@/constants/contants";
+import { NAVBAR_HEIGHT } from "@/constants/constants";
 import { MobileMenu, NavbarBrand } from "..";
 import NavLinks from "../NavLinks";
 

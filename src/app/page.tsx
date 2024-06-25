@@ -1,4 +1,4 @@
-import { CustomerRating, Video } from "@/components";
+import { CourseMenu, CustomerRating, Video } from "@/components";
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
 import { getQueryClient } from "./get-query-client";
 import { ratingOptions } from "./rating";
@@ -10,7 +10,9 @@ export default function Home() {
 
   return (
     <main className={`flex min-h-screen`}>
-      <div className="flex-[1] hidden md:block" />
+      <div className="flex-[1]">
+        <CourseMenu />
+      </div>
       <div className="px-4 pt-[30px] flex-[3] md:pe-20">
         <div className="rounded-[20px] overflow-hidden shadow-video">
           <Video

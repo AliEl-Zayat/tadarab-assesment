@@ -1,3 +1,4 @@
+export { default as CourseMenu } from "./CourseMenu";
 export { default as CustomerRating } from "./CustomerRating";
 export { default as Divider } from "./Divider";
 export { default as MobileMenu } from "./MobileMenu";

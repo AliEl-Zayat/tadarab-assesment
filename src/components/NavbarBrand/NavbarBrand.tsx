@@ -1,4 +1,4 @@
-import { NAVBAR_LOGO } from "@/constants/contants";
+import { NAVBAR_LOGO } from "@/constants/constants";
 import Image from "next/image";
 import Link from "next/link";
 import Divider from "../Divider";

@@ -1,4 +1,4 @@
-import { NAVBAR_LINKS } from "@/constants/contants";
+import { NAVBAR_LINKS } from "@/constants/constants";
 import { NavLink } from "..";
 
 type TNavLinks = {
