@@ -7,7 +7,7 @@ type Props = {};
 
 const NavbarBrand = ({}: Props) => {
   return (
-    <div className="flex items-center gap-[20px]">
+    <div className="flex items-center gap-[20px] px-4 md:px-0">
       <Link href="/">
         <Image src={NAVBAR_LOGO} alt="Tadarab Logo" width={88.52} height={30} />
       </Link>
