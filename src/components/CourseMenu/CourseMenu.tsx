@@ -7,8 +7,9 @@ import { MutableRefObject, useEffect, useRef, useState } from "react";
 const completed = 32;
 
 const CourseMenu = () => {
-  const [activeAccordion, setActiveAccordion] =
-    useState<string>("المجموعة الأولى");
+  const [activeAccordion, setActiveAccordion] = useState<string | null>(
+    "المجموعة الأولى"
+  );
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(true);
   const [menuWidth, setMenuWidth] = useState(425);
@@ -101,12 +102,14 @@ const CourseMenu = () => {
                 <div className="accordion-container" key={key}>
                   <div
                     className="accordion-header py-[26px] flex justify-between border-b-[1px] border-b-[#0000001A] ps-[39px] pe-[22px] items-center hover:cursor-pointer select-none"
-                    onClick={() => setActiveAccordion(key)}
+                    onClick={() => {
+                      setActiveAccordion((prev) => (prev === key ? null : key));
+                    }}
                   >
                     <p className="text-[16px] font-extrabold text-[#777]">
                       {key}{" "}
                       <span className="text-[16px] font-normal">
-                        ({completed.length}/{value.total})
+                        ({completed.length}/{value.content.length})
                       </span>
                     </p>
                     {activeAccordion === key ? <MinusIcon /> : <PlusIcon />}

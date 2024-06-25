@@ -57,18 +57,82 @@ export const COURSE_CONTENT = {
   },
   "المجموعة الثانية": {
     total: 9,
-    content: [],
+    content: [
+      {
+        title: "المقدمة",
+        duration: "01:34",
+        completed: false,
+      },
+      {
+        title: "الدرس الأول - التعريف",
+        duration: "15:34",
+        completed: false,
+      },
+      {
+        title: "الدرس الثاني - التسويق",
+        duration: "09:21",
+        completed: false,
+      },
+    ],
   },
   "المجموعة الثالثة": {
     total: 12,
-    content: [],
+    content: [
+      {
+        title: "المقدمة",
+        duration: "01:34",
+        completed: false,
+      },
+      {
+        title: "الدرس الأول - التعريف",
+        duration: "15:34",
+        completed: true,
+      },
+      {
+        title: "الدرس الثاني - التسويق",
+        duration: "09:21",
+        completed: true,
+      },
+    ],
   },
   "المجموعة الرابعة": {
     total: 7,
-    content: [],
+    content: [
+      {
+        title: "المقدمة",
+        duration: "01:34",
+        completed: true,
+      },
+      {
+        title: "الدرس الأول - التعريف",
+        duration: "15:34",
+        completed: true,
+      },
+      {
+        title: "الدرس الثاني - التسويق",
+        duration: "09:21",
+        completed: false,
+      },
+    ],
   },
   "المجموعة الخامسة": {
     total: 8,
-    content: [],
+    content: [
+      {
+        title: "المقدمة",
+        duration: "01:34",
+        completed: false,
+      },
+      {
+        title: "الدرس الأول - التعريف",
+        duration: "15:34",
+        completed: true,
+      },
+      {
+        title: "الدرس الثاني - التسويق",
+        duration: "09:21",
+        completed: true,
+      },
+    ],
   },
 };
