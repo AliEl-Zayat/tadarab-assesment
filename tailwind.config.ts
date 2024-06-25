@@ -16,7 +16,6 @@ const config: Config = {
       container: {
         center: true,
         padding: "0 30px",
-        maxWidth: "1366px",
       },
       colors: {
         "primary-dark": "#AF151F",
