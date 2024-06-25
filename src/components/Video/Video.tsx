@@ -12,13 +12,15 @@ type TVideo = {
 };
 
 const Video = ({ src, width, height, track, thumbnail }: TVideo) => {
+  const thumbnailResized = thumbnail.replace("fullsize", "smaller");
+
   return (
     <video
       width={`${width}`}
       height={`${height}`}
       controls
-      preload={"none"}
-      poster={thumbnail}
+      preload="metadata"
+      poster={thumbnailResized}
     >
       <source src={src} type="video/mp4" />
       {track && (
