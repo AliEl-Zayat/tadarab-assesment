@@ -5,4 +5,5 @@ export { default as MobileMenu } from "./MobileMenu";
 export { default as NavLink } from "./NavLink";
 export { default as Navbar } from "./Navbar";
 export { default as NavbarBrand } from "./NavbarBrand";
+export { default as RateForm } from "./RateForm";
 export { default as Video } from "./Video";

@@ -1,6 +1,7 @@
 import { Navbar } from "@/components";
 import type { Metadata, Viewport } from "next";
 import { Almarai } from "next/font/google";
+import ToastProvider from "./ToastProvider";
 import "./globals.css";
 import Providers from "./providers";
 
@@ -33,7 +34,9 @@ export default function RootLayout({
       />
       <body className={almarai.className}>
         <Navbar />
-        <Providers>{children}</Providers>
+        <ToastProvider>
+          <Providers>{children}</Providers>
+        </ToastProvider>
       </body>
     </html>
   );
