@@ -17,10 +17,12 @@ const CourseMenu = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMenuVisible(window.innerWidth > 1024);
-      setIsMobile(window.innerWidth < 1024);
-      if (window.innerWidth < 1024) {
-        setMenuWidth(window.innerWidth);
+      if (window.visualViewport?.width !== undefined) {
+        setIsMenuVisible(window.visualViewport?.width > 1024);
+        setIsMobile(window.visualViewport?.width < 1024);
+        if (window.visualViewport?.width < 1024) {
+          setMenuWidth(window.visualViewport?.width);
+        }
       }
     };
 
