@@ -1,7 +1,7 @@
 import { CourseMenu, CustomerRating, RateForm, Video } from "@/components";
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
-import { getQueryClient } from "./get-query-client";
-import { ratingOptions } from "./rating";
+import { getQueryClient } from "../get-query-client";
+import { ratingOptions } from "../rating";
 
 export default function Home() {
   const queryClient = getQueryClient();

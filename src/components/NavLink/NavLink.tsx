@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { ReactElement } from "react";
 import styles from "./styles.module.scss";
 
@@ -12,7 +14,7 @@ type Props = {
 };
 
 const NavLink = ({ title, href, icon, isRow }: Props) => {
-  const activeLink = href === "/course-rating";
+  const activeLink = usePathname() === href;
 
   const Icon = React.cloneElement(icon as ReactElement, {
     ...icon.props,
