@@ -27,6 +27,8 @@ const config: Config = {
         sideBar: "0 0 20px #0000001A",
         video: "inset 0 0 66px #00000042",
         card: "0 0 30px #0000001A",
+        mainButton: "0 4px 20px #AF151F4D",
+        ghostedButton: "0 4px 20px #AF151F1A",
       },
     },
   },

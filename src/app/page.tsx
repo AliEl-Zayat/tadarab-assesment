@@ -41,10 +41,10 @@ export default function Home() {
             placeholder="اكتب تقييمك أو ملاحظاتك على الدورة ..."
           />
           <div className="mt-[16px] flex gap-[20px]">
-            <button className="bg-primary-dark text-white rounded-[12px] py-[12px] max-w-[215px] w-full">
+            <button className="bg-primary-light transition-colors hover:bg-primary-dark text-white rounded-[12px] py-[12px] max-w-[215px] w-full shadow-mainButton">
               إرسال التقييم
             </button>
-            <button className="bg-[#7777771a] text-black rounded-[12px] py-[12px] max-w-[215px] w-full">
+            <button className="bg-[#7777771a] transition-colors hover:bg-[#77777733] text-black rounded-[12px] py-[12px] max-w-[215px] w-full shadow-ghostedButton">
               إلغاء
             </button>
           </div>
