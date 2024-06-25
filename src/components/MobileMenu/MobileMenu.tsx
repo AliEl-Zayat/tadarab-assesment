@@ -57,6 +57,9 @@ const MobileMenu: React.FC = () => {
         <button
           className="hover:opacity-50"
           onClick={() => setIsMenuVisible((prev) => !prev)}
+          aria-label="Menu Toggle"
+          data-cy="menu-toggle"
+          title="Menu Toggle"
         >
           <MenuDots />
         </button>

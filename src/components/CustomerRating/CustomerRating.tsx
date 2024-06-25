@@ -37,7 +37,6 @@ const CustomerRating = () => {
       rates.forEach((rate: Rate) => {
         ratesCount[rate.rating] += 1;
       });
-      console.log(ratesCount);
       setRenderRates(ratesCount);
     }
   }, [rates]);
@@ -64,12 +63,15 @@ const CustomerRating = () => {
     }
   }, [data]);
 
-  const ratingPercentage = (rating: number, returnSize: boolean = false) => {
-    if (returnSize) {
-      return `${Number((rating / data.length) * 100)}%`;
-    }
-    return `${Number((rating / data.length) * 100).toLocaleString("ar")} %`;
-  };
+  const ratingPercentage = useCallback(
+    (rating: number, returnSize: boolean = false) => {
+      if (returnSize) {
+        return `${Number((rating / data.length) * 100)}%`;
+      }
+      return `${Number((rating / data.length) * 100).toLocaleString("ar")} %`;
+    },
+    [data]
+  );
 
   const RatingRow = useCallback(
     ({ stars, rating }: { stars: number; rating: number }) => {
@@ -90,7 +92,7 @@ const CustomerRating = () => {
         </div>
       );
     },
-    []
+    [ratingPercentage]
   );
 
   return (
@@ -104,13 +106,13 @@ const CustomerRating = () => {
           </div>
           <div>
             <StarRating rating={averageRating} />
-            <p className="text-[16px] text-grey">
+            <p className="text-[16px] text-[#575B5E]">
               {totalRatesCount.toLocaleString("ar")} تقييم
             </p>
           </div>
         </div>
-        <p className="text-[16px] font-normal text-grey mt-[5px] flex items-start gap-2">
-          <span className="text-black text-[30px]">
+        <p className="text-[16px] font-normal text-[#35383A] mt-[5px] flex items-start gap-2">
+          <span className="text-[#9C9B9B] text-[30px]">
             {ratingPercentage(fiveStarCount)}
           </span>{" "}
           يرشحون هذه الدورة
