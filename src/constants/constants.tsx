@@ -3,11 +3,11 @@ import { CourseCertificateIcon, PlayIcon, QnAIcon, StarIcon } from "@/assets";
 export const API_URL = "https://api.themoviedb.org/3";
 export const NAVBAR_HEIGHT = 80;
 export const NAVBAR_LINKS = [
-  { id: "1", title: "المنهج", href: "/schedule", icon: <PlayIcon /> },
+  { id: "1", title: "المنهج", href: "/course", icon: <PlayIcon /> },
   {
     id: "2",
     title: "الاسئلة و الأجوبة",
-    href: "/schedule",
+    href: "/qna",
     icon: <QnAIcon />,
   },
   {
@@ -19,7 +19,7 @@ export const NAVBAR_LINKS = [
   {
     id: "4",
     title: "شهادة الدورة",
-    href: "/schedule",
+    href: "/certificate",
     icon: <CourseCertificateIcon />,
   },
 ];
