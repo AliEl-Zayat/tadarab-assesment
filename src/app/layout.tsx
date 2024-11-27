@@ -19,6 +19,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "دورة التسويق الفعال للمشروعات الصغيرة",
   description: "دورة التسويق الفعال للمشروعات الصغيرة",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({
